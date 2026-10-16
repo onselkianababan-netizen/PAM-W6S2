@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'widget_form/form_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +11,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'PAM W5S3',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const FormWidget(),
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Sayur Mayur si Tegar',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: const Home(),
+        );
+      },
     );
   }
 }
